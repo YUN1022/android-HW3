@@ -1,6 +1,7 @@
 package d0440672.iecs.fcu.hw3;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.design.widget.FloatingActionButton;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -46,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
     protected void onActivityResult (int requestCode,int resultCode, Intent intent) {
 
+
         if(intent == null) {
             return;
         }
@@ -53,8 +56,8 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode,resultCode,intent);
         switch(requestCode) {
             case Activity_submit:
-                String Name = intent.getStringExtra("KEY_NAME");
-                Toast.makeText(MainActivity.this,"Hello"+Name,Toast.LENGTH_SHORT);
+                String showName = intent.getStringExtra("KEY_NAME");
+                Toast.makeText(MainActivity.this,"Hello"+showName,Toast.LENGTH_SHORT);
                 break;
         }
     }
@@ -77,6 +80,13 @@ public class MainActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
+        }
+        else if(id==R.id.action_web){
+            Uri uri=Uri.parse("http://www.gogle.com.tw");
+            Intent web = new Intent();
+            web.setAction(Intent.ACTION_VIEW);
+            web.setData(uri);
+            startActivity(web);
         }
 
         return super.onOptionsItemSelected(item);

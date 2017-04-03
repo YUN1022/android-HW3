@@ -33,13 +33,13 @@ public class page2Activity extends AppCompatActivity {
             }
         });
         return_Name=(EditText)findViewById(R.id.return_name);
-        final String i=return_Name.getText().toString();
+        final String userName=return_Name.getText().toString();
         goPage1=(Button)findViewById(R.id.return_btn);
         goPage1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent();
-                intent.putExtra(KEY_NAME,i);
+                intent.putExtra("KEY_NAME",userName);
                 setResult(RESULT_OK,intent);
                 finish();
             }
