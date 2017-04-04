@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         switch(requestCode) {
             case Activity_submit:
                 String showName = intent.getStringExtra("KEY_NAME");
-                Toast.makeText(MainActivity.this,"Hello"+showName,Toast.LENGTH_SHORT);
+                Toast.makeText(MainActivity.this,"Hello"+showName,Toast.LENGTH_SHORT).show();
                 break;
         }
     }
